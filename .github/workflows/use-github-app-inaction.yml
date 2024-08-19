@@ -1,0 +1,31 @@
+name: Use GitHub App
+on:
+  workflow_dispatch:
+
+
+  push:
+    paths:
+    - .github/workflows/use-github-app-inaction.yml
+
+jobs:
+  checkout-other-repo:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "This is the github.workspace ..."
+        echo ${{ github.workspace }}
+
+    - name: Get Token
+      id: get_workflow_token
+      uses: peter-murray/workflow-application-token-action@v2
+      with:
+        application_id: ${{ vars.GH_APPLICATION_ID }}
+        application_private_key: ${{ secrets.GH_APPLICATION_KEY }}
+        
+    - uses: actions/checkout@v3
+      with:
+        token: ${{ steps.get_workflow_token.outputs.token }}
+        repository: aliransari/sysops-admin-associate
+    
+    - name: cat the conent of the file afer checkout
+      run: cat README.md
