@@ -23,6 +23,8 @@ jobs:
         private-key: ${{ secrets.GH_APPLICATION_KEY }}
         
     - uses: actions/checkout@v3
+      env:
+        GH_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
       with:
         token: ${{ steps.get_workflow_token.outputs.token }}
         repository: aliransari/sysops-admin-associate
