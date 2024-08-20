@@ -23,6 +23,3 @@ jobs:
       with:
         token: ${{ steps.app-token.outputs.token }}
         ref: aliransari/sysops-admin-associate
-    
-    - name: cat the conent of the file afer checkout
-      run: cat README.md
