@@ -11,22 +11,19 @@ jobs:
   checkout-other-repo:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo "This is the github.workspace ..."
-        echo ${{ github.workspace }}
 
     - name: Action to generate an installation access token from long lived private key
-      id: app-token
       uses: actions/create-github-app-token@v1
+      id: app-token
       with:
         app-id: ${{ vars.GH_APPLICATION_ID }}
         private-key: ${{ secrets.GH_APPLICATION_KEY }}
         
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         token: ${{ steps.app-token.outputs.token }}
         repository: aliransari/sysops-admin-associate
-        path: .github/actions
+        persist-credentials: false
     
     - name: cat the conent of the file afer checkout
       run: cat README.md
