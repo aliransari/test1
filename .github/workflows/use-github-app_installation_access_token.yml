@@ -18,6 +18,7 @@ jobs:
       with:
         app-id: ${{ vars.GH_APPLICATION_ID }}
         private-key: ${{ secrets.GH_APPLICATION_KEY }}
+        owner: ${{ github.repository_owner }}
         
     - uses: actions/checkout@v4
       with:
