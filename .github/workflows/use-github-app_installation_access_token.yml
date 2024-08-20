@@ -29,5 +29,5 @@ jobs:
         persist-credentials: false
 
     - name: cat the conent of the file afer checkout
-      run: cat README.md
+      run: cat sysops-admin-associate/README.md
 
