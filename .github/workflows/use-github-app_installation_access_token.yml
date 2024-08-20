@@ -13,7 +13,7 @@ jobs:
     steps:
 
     - name: Action to generate an installation access token from long lived private key
-      uses: actions/create-github-app-token@v1
+      uses: peter-murray/workflow-application-token-action@v2
       id: app-token
       with:
         app-id: ${{ vars.GH_APPLICATION_ID }}
@@ -23,7 +23,6 @@ jobs:
       with:
         token: ${{ steps.app-token.outputs.token }}
         repository: aliransari/sysops-admin-associate
-        persist-credentials: false
     
     - name: cat the conent of the file afer checkout
       run: cat README.md
