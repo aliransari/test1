@@ -28,7 +28,6 @@ jobs:
         path: sysops-admin-associate
         persist-credentials: false
 
-    - uses: creyD/prettier_action@v4.3
-      with:
-        github_token: ${{ steps.app-token.outputs.token }}
+    - name: cat the conent of the file afer checkout
+      run: cat README.md
 
