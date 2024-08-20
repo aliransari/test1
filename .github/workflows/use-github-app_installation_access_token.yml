@@ -18,6 +18,10 @@ jobs:
       with:
         app-id: ${{ vars.GH_APPLICATION_ID }}
         private-key: ${{ secrets.GH_APPLICATION_KEY }}
+
+    - uses: actions/checkout@v4
+      with:
+        path: main
         
     - uses: actions/checkout@v4
       with:
