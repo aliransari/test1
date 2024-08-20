@@ -18,8 +18,11 @@ jobs:
       with:
         app-id: ${{ vars.GH_APPLICATION_ID }}
         private-key: ${{ secrets.GH_APPLICATION_KEY }}
+
+    - name: some variable debug
+      run: cat ${{ steps.app-token.outputs.token }}
         
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         token: ${{ steps.app-token.outputs.token }}
         repository: aliransari/sysops-admin-associate
