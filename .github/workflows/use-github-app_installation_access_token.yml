@@ -16,17 +16,15 @@ jobs:
         echo ${{ github.workspace }}
 
     - name: Action to generate an installation access token from long lived private key
-      id: get_workflow_token
+      id: app-token
       uses: actions/create-github-app-token@v1
       with:
         app-id: ${{ vars.GH_APPLICATION_ID }}
         private-key: ${{ secrets.GH_APPLICATION_KEY }}
         
-    - uses: actions/checkout@v3
-      env:
-        GH_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
+    - uses: actions/checkout@v4
       with:
-        GH_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
+        token: ${{ steps.app-token.outputs.token }}
         repository: aliransari/sysops-admin-associate
     
     - name: cat the conent of the file afer checkout
