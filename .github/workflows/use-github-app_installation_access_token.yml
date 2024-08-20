@@ -26,7 +26,7 @@ jobs:
       env:
         GH_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
       with:
-        token: ${{ steps.get_workflow_token.outputs.token }}
+        GH_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
         repository: aliransari/sysops-admin-associate
     
     - name: cat the conent of the file afer checkout
