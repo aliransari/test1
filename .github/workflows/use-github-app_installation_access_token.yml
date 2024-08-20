@@ -23,4 +23,5 @@ jobs:
       with:
         token: ${{ steps.app-token.outputs.token }}
         repository: aliransari/sysops-admin-associate
+        path: sysops-admin-associate
 
