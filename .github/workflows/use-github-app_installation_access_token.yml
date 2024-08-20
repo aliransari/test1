@@ -20,7 +20,7 @@ jobs:
       uses: actions/create-github-app-token@v1
       with:
         app-id: ${{ vars.GH_APPLICATION_ID }}
-        private_key: ${{ secrets.GH_APPLICATION_KEY }}
+        private-key: ${{ secrets.GH_APPLICATION_KEY }}
         
     - uses: actions/checkout@v3
       with:
