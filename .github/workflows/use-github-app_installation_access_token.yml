@@ -24,4 +24,4 @@ jobs:
         GH_TOKEN: ${{ steps.app-token.outputs.token }}
       with:
         token: ${{ steps.app-token.outputs.token }}
-        ref: aliransari/sysops-admin-associate
+        repository: aliransari/sysops-admin-associate
